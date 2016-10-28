@@ -1,36 +1,47 @@
 package util;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FileUtil {
+public class FileUtil<T> {
 	
-	private static String content;
+	private List<T> content;
 	
-	public static String lerArquivoPartida(File log){
-	    File file = log;
-	    FileReader reader = null;
+	@SuppressWarnings("unchecked")
+	public T lerArquivoPartida(File log){
 	    try {
-	        reader = new FileReader(file);
-	        char[] chars = new char[(int) file.length()];
-	        reader.read(chars);
-	        content = new String(chars);
-	        reader.close();
-	    } catch (IOException e) {
-	       e.getMessage();
-	       return "Aconteceu um problema na leitura do arquivo";	
-	    } finally {
-	        if(reader !=null){
-	        	try {
-					reader.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-					return "Não foi possível terminar a leitura do arquivo, tente novamente"; 
-				}
-        	}
+	    	FileInputStream fstream = new FileInputStream(log);
+	    	BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+
+	    	String strLine;
+
+	    	while ((strLine = br.readLine()) != null)   {
+	    	  getContent().add((T)strLine);
+	    	}
+
+	    	br.close();
+	    } catch(IOException e) {
+	    	e.printStackTrace();
 	    }
-	    return content;
+	    return (T) getContent();
+	}
+
+	public List<T> getContent() {
+		if (content == null) {
+			content = new ArrayList<T>();
+			
+		}
+
+		return content;
+	}
+
+	public void setContent(List<T> content) {
+		this.content = content;
 	}
 	
 
