@@ -10,6 +10,7 @@ public class Jogador {
 	private Map<String, Integer> armas;
 	private int qtdeMortes;
 	private int qtdeMatou;
+	private int award;
 	
 	public Jogador(){
 		setQtdeMatou(0);
@@ -58,7 +59,14 @@ public class Jogador {
 		this.qtdeMatou = qtdeMatou;
 	}
 	
-	
+	public int getAward() {
+		return award;
+	}
+
+	public void setAward(int award) {
+		this.award = award;
+	}
+
 	void matou(String arma){
 		if(getArmas().containsKey(arma)){
 			Integer qtde = (Integer) getArmas().get(arma);

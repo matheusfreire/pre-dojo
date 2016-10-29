@@ -31,18 +31,4 @@ public class PartidaTest {
 		Assert.assertEquals(1, jogo.getPartidas().size());
 	}
 	
-	@Test
-	public void obterVencedor(){
-		for (Partida partida : jogo.getPartidas()) {
-			Assert.assertEquals("Roman", partida.getVencedor().toString());
-		}
-	}
-	
-	@Test
-	public void quantidadeMortesVencedor(){
-		for (Partida partida : jogo.getPartidas()) {
-			Assert.assertEquals("R-15", partida.getVencedor().getArmaPreferida());
-		}
-	}
-	
 }

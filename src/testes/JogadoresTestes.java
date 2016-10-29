@@ -32,5 +32,26 @@ public class JogadoresTestes {
 			Assert.assertEquals(2, partida.getQuantidadeJogadores());
 		}
 	}
+	
+	@Test
+	public void obterVencedor(){
+		for (Partida partida : jogo.getPartidas()) {
+			Assert.assertEquals("Roman", partida.getVencedor().toString());
+		}
+	}
+	
+	@Test
+	public void quantidadeMortesVencedor(){
+		for (Partida partida : jogo.getPartidas()) {
+			Assert.assertEquals("R-15", partida.getVencedor().getArmaPreferida());
+		}
+	}
+	
+	@Test
+	public void awardsDoVencedor(){
+		for (Partida partida : jogo.getPartidas()) {
+			Assert.assertEquals(0, partida.trofeusVencedor());
+		}
+	}
 
 }

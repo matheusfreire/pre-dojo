@@ -57,7 +57,8 @@ public class Jogo {
 		} else {
 			for (Partida partida : partidas) {
 				Jogador vencedor =  partida.getVencedor();
-				System.out.printf("Partida: " +partida.getId() + "|Vencedor: "+ vencedor.toString() + "|Quantidade mortes/morreu: %d/%d "+ "|Arma mais utilizada: " + vencedor.getArmaPreferida() , vencedor.getQtdeMatou(), vencedor.getQtdeMortes());
+				partida.trofeusVencedor();
+				System.out.printf("Partida: " +partida.getId() + "|Vencedor: "+ vencedor.toString() + "|Quantidade mortes/morreu: %d/%d "+ "|Arma mais utilizada: " + vencedor.getArmaPreferida() + "|Awards do vencedor: "+vencedor.getAward() , vencedor.getQtdeMatou(), vencedor.getQtdeMortes());
 				System.out.println("");
 			}
 		}

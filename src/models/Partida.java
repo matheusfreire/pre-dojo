@@ -101,4 +101,13 @@ public class Partida {
 		}
 	}
 	
+	public int trofeusVencedor(){
+		int trofeus = 0;
+		if(this.getVencedor().getQtdeMortes() == 0){
+			trofeus = this.getVencedor().getAward() + 1;
+		}
+		
+		return trofeus;
+	}
+	
 }
