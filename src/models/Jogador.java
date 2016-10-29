@@ -11,6 +11,16 @@ public class Jogador {
 	private int qtdeMortes;
 	private int qtdeMatou;
 	
+	public Jogador(){
+		setQtdeMatou(0);
+		setQtdeMortes(0);
+	}
+	
+	public Jogador(String nome){
+		this();
+		this.nome = nome;
+	}
+	
 
 	public String getNome() {
 		return nome;
@@ -57,12 +67,11 @@ public class Jogador {
 		}else{
 			getArmas().put(arma,1);
 		}
-		qtdeMatou++;
-		
+		++qtdeMatou;
 	}
 	
 	void morreu(){
-		qtdeMortes--;
+		++qtdeMortes;
 	}
 	
 	public String getArmaPreferida(){
@@ -84,6 +93,11 @@ public class Jogador {
 	@Override
 	public boolean equals(Object obj) {
 		return this.nome.equals(((Jogador)obj).getNome());
+	}
+	
+	@Override
+	public String toString() {
+		return this.nome;
 	}
 
 }

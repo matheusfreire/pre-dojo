@@ -13,7 +13,7 @@ public class FileUtil<T> {
 	private List<T> content;
 	
 	@SuppressWarnings("unchecked")
-	public T lerArquivoPartida(File log){
+	public T lerArquivoPartida(File log) throws Exception{
 	    try {
 	    	FileInputStream fstream = new FileInputStream(log);
 	    	BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
@@ -26,7 +26,7 @@ public class FileUtil<T> {
 
 	    	br.close();
 	    } catch(IOException e) {
-	    	e.printStackTrace();
+	    	throw new Exception("Não foi possível ler o arquivo, corrija-o e tente novamente");
 	    }
 	    return (T) getContent();
 	}
