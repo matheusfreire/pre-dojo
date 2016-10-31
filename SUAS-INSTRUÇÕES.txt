@@ -1,2 +1,10 @@
-Coloque aqui suas instru��es ou coment�rios que ache �til/relevantes para possamos ler 
-quando estivermos avaliando a sua solu��o
+Para a implementação dos teste utilizei o framework:
+ - Junit 4.
+ 
+As 2 classes verificam os teste de acordo com o arquivo de log.
+
+A execução da classe Main espera um arquivo txt, estoura uma exceção quando ele não consegue ler ou acontece algum problema na leitura das linhas do arquivo.
+
+Sobre o desafio utilizei a ideia de ter uma classe (ENUM) com os constantes, já que todas as linhas tinham algo que a identificava, então caso apareça um nova linha neste padrão basta modificar um único arquivo e na implementação do jogo.
+
+O bônus feito foi somnete o de verificar que ele terminou a partida sem morrer e acresce um award na vencedor.
